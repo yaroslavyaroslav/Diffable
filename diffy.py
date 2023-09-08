@@ -82,7 +82,7 @@ class DiffyCommand(sublime_plugin.TextCommand):
         lhs_path = "/dev/fd/" + str(lhs_read_fd)
         rhs_path = "/dev/fd/" + str(rhs_read_fd)
 
-        ksdiff = subprocess.Popen(["/usr/local/bin/ksdiff", lhs_path, rhs_path], pass_fds=[lhs_read_fd, rhs_read_fd], close_fds=True)
+        ksdiff = subprocess.Popen(["/usr/local/bin/ksdiff", "-l", "Sublime", lhs_path, rhs_path], pass_fds=[lhs_read_fd, rhs_read_fd], close_fds=True)
 
         os.write(lhs_write_fd, lhs_text)
         os.close(lhs_write_fd)
