@@ -1,4 +1,4 @@
-Diffy
+Diffable
 ============================
 
 This is a file comparison plugin for both Sublime 2 and 3. 
@@ -6,7 +6,7 @@ This is a file comparison plugin for both Sublime 2 and 3.
 Enjoy!
 
 ### Installation
-Please install Sublime [Package Control]("https://sublime.wbond.net/installation") first. Then inside *Package Control: Install Package*, type *Diffy* and then click to confirm.
+Please install Sublime [Package Control]("https://sublime.wbond.net/installation") first. Then inside *Package Control: Install Package*, type *Diffable* and then click to confirm.
 
 ### Usage
 After installing the plugin, set the layout to be 2 columns via *View -> Layout -> Columns: 2*. And make sure you have files (or temporary files pasted from clipboard) opened side by side.
@@ -18,13 +18,13 @@ After installing the plugin, set the layout to be 2 columns via *View -> Layout 
 #### The default key binding for Mac is
 
 ```
-{ "keys": ["super+k", "super+d"], "command": "diffy" }
-{ "keys": ["super+k", "super+c"], "command": "diffy", "args": {"action": "clear"} }
+{ "keys": ["super+k", "super+d"], "command": "diffable" }
+{ "keys": ["super+k", "super+c"], "command": "diffable", "args": {"action": "clear"} }
 ```
 
 #### The default key binding for Windows / Linux is
 
 ```
-{ "keys": ["ctrl+k", "ctrl+d"], "command": "diffy" }
-{ "keys": ["ctrl+k", "ctrl+c"], "command": "diffy", "args": {"action": "clear"} }
+{ "keys": ["ctrl+k", "ctrl+d"], "command": "diffable" }
+{ "keys": ["ctrl+k", "ctrl+c"], "command": "diffable", "args": {"action": "clear"} }
 ```

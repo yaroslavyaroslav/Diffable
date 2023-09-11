@@ -4,20 +4,27 @@
 		"id": "separator"
 	},
 	{
-		"caption": "Diffy (2 Columns)",
+		"caption": "Diffable (2 Columns)",
 		"mnemonic": "D",
-		"id": "diffy",
+		"id": "diffable",
 		"children":
 		[
 			{
-				"id" : "diffyStart",
+				"id" : "diffableStart",
 				"caption" : "Compare",
-				"command" : "diffy"
+				"command" : "diffable",
+				"args": {"action": "inline"}
 			},
 			{
-				"id" : "diffyEnd",
+				"id" : "diffableStart",
+				"caption" : "Compare",
+				"command" : "diffable",
+				"args": {"action": "kaleidoscope"}
+			},
+			{
+				"id" : "diffableEnd",
 				"caption": "Clear", 
-				"command": "diffy",
+				"command": "diffable",
 				"args": {"action": "clear"}
 			}
 		]

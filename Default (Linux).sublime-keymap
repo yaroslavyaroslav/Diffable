@@ -4,14 +4,27 @@
       "ctrl+k",
       "ctrl+d"
     ],
-    "command": "diffy"
+    "command": "diffable",
+      "args": {
+      "action": "inline"
+    }
+  },
+  {
+    "keys": [
+      "ctrl+k",
+      "ctrl+o"
+    ],
+    "command": "diffable",
+      "args": {
+      "action": "kaleidoscope"
+    }
   },
   {
     "keys": [
       "ctrl+k",
       "ctrl+c"
     ],
-    "command": "diffy",
+    "command": "diffable",
     "args": {
       "action": "clear"
     }

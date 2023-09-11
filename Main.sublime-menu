@@ -10,25 +10,26 @@
                 "id": "package-settings", 
                 "children": [
                     {
-                        "caption": "Diffy", 
+                        "caption": "Diffable",
                         "children": [
+                            // MARK: To not seek how to implement settings right when it will require some.
+                            // {
+                            //     "caption": "Settings",
+                            //     "args": {
+                            //         "base_file": "${packages}/diffable/Diffy.sublime-settings",
+                            //         "default": "// Settings in here override those in \"Diffy.sublime-settings\"\n{}\n"
+                            //     },
+                            //     "command": "edit_settings",
+                            // },
                             {
-                                "caption": "Settings Default", 
+                                "caption": "Key Bindings",
                                 "args": {
-                                    "file": "${packages}/Diffy/Diffy.sublime-settings"
+                                    "base_file": "${packages}/User/Diffable.sublime-settings",
+                                    "user_file": "${packages}/User/Default (${platform}).sublime-keymap",
+                                    "default": "[\n\t$0\n]\n",
                                 }, 
-                                "command": "open_file"
+                                "command": "edit_settings"
                             }, 
-                            {
-                                "caption": "Settings User", 
-                                "args": {
-                                    "file": "${packages}/User/Diffy.sublime-settings"
-                                }, 
-                                "command": "open_file"
-                            }, 
-                            {
-                                "caption": "-"
-                            }
                         ]
                     }
                 ]

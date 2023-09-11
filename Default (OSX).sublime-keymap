@@ -4,14 +4,27 @@
       "super+k",
       "super+d"
     ],
-    "command": "diffy"
+    "command": "diffable",
+      "args": {
+      "action": "inline"
+    }
+  },
+  {
+    "keys": [
+      "super+k",
+      "super+o"
+    ],
+    "command": "diffable",
+      "args": {
+      "action": "kaleidoscope"
+    }
   },
   {
     "keys": [
       "super+k",
       "super+c"
     ],
-    "command": "diffy",
+    "command": "diffable",
     "args": {
       "action": "clear"
     }
