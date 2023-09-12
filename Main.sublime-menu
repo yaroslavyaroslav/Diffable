@@ -13,18 +13,18 @@
                         "caption": "Diffable",
                         "children": [
                             // MARK: To not seek how to implement settings right when it will require some.
-                            // {
-                            //     "caption": "Settings",
-                            //     "args": {
-                            //         "base_file": "${packages}/diffable/Diffy.sublime-settings",
-                            //         "default": "// Settings in here override those in \"Diffy.sublime-settings\"\n{}\n"
-                            //     },
-                            //     "command": "edit_settings",
-                            // },
+                            {
+                                "caption": "Settings",
+                                "args": {
+                                    "base_file": "${packages}/Diffable/Diffable.sublime-settings",
+                                    "default": "// Settings in here override those in \"Diffable.sublime-settings\"\n{\n\n}\n"
+                                },
+                                "command": "edit_settings",
+                            },
                             {
                                 "caption": "Key Bindings",
                                 "args": {
-                                    "base_file": "${packages}/User/Diffable.sublime-settings",
+                                    "base_file": "${packages}/Diffable/Default.sublime-keymap",
                                     "user_file": "${packages}/User/Default (${platform}).sublime-keymap",
                                     "default": "[\n\t$0\n]\n",
                                 }, 
