@@ -3,13 +3,17 @@ import os
 import subprocess
 
 class Diffable(sublime_plugin.TextCommand):
+
+    setting = {}
+
     def get_entire_content(self, view):
         selection = sublime.Region(0, view.size())
         content = view.substr(selection)
         return content
 
-    def run(self, edit, **kwargs):
+    def run(self, _, **kwargs):
         window = self.view.window()
+        self.settings = sublime.load_settings("Diffable.sublime-settings")
 
         action = kwargs.get('action', None)
 
@@ -25,8 +29,7 @@ class Diffable(sublime_plugin.TextCommand):
             text_right = self.get_entire_content(view_2)
 
             if action == 'inline':
-                    # view_1.set_reference_document(text_right)
-                    view_2.set_reference_document(text_left)
+                view_2.set_reference_document(text_left) if self.settings.get("left_to_right") else view_1.set_reference_document(text_right)
 
             elif action == 'kaleidoscope':
                 self.write_in_pipe(text_left, text_right)
@@ -41,7 +44,9 @@ class Diffable(sublime_plugin.TextCommand):
         lhs_path = "/dev/fd/" + str(lhs_read_fd)
         rhs_path = "/dev/fd/" + str(rhs_read_fd)
 
-        ksdiff = subprocess.Popen(["/usr/local/bin/ksdiff", "-l", "Sublime", lhs_path, rhs_path], pass_fds=[lhs_read_fd, rhs_read_fd], close_fds=True)
+        ksdiff_path = self.settings.get("kaleidoscope_path")
+
+        ksdiff = subprocess.Popen([ksdiff_path, "-l", "Sublime Text", lhs_path, rhs_path], pass_fds=[lhs_read_fd, rhs_read_fd], close_fds=True)
 
         os.write(lhs_write_fd, lhs_bytes)
         os.close(lhs_write_fd)

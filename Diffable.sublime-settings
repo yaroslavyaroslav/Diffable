@@ -1,0 +1,13 @@
+{
+    // Path to [Kaleidoscope](https://kaleidoscope.app) CLI utility.
+    // Supported versions of Kaleidoscope are 3 & 4.
+    // The one could get this path by themselves by typing
+    // in the terminal the following command: `which ksdiff`
+    "kaleidoscope_path": "/usr/local/bin/ksdiff",
+
+    // On which side to present diff of a given content
+    // - If true, diff would be presented in the right tab
+    // - If false on the left.
+    // The second tab wouldn't be affected eitherway.
+    "left_to_right": true
+}
