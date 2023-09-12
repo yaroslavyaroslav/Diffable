@@ -5,9 +5,15 @@
     // in the terminal the following command: `which ksdiff`
     "kaleidoscope_path": "/usr/local/bin/ksdiff",
 
-    // On which side to present diff of a given content
+    // In which mode inline diff will be presented
+    // - If true, diffs would be calculated and presented on both panes
+    // - If false, one pane would be kept in it basic state while the second will presents a diff
+    "two_panes_mode": false,
+
+    // On which side to present inline diff of a given content
     // - If true, diff would be presented in the right tab
     // - If false on the left.
     // The second tab wouldn't be affected eitherway.
-    "left_to_right": true
+    // have no effect in `two_panes_mode` mode.
+    "left_to_right": true,
 }

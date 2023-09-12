@@ -29,7 +29,11 @@ class Diffable(sublime_plugin.TextCommand):
             text_right = self.get_entire_content(view_2)
 
             if action == 'inline':
-                view_2.set_reference_document(text_left) if self.settings.get("left_to_right") else view_1.set_reference_document(text_right)
+                if self.settings.get("two_panes_mode"):
+                    view_2.set_reference_document(text_left)
+                    view_1.set_reference_document(text_right)
+                else:
+                    view_2.set_reference_document(text_left) if self.settings.get("left_to_right") else view_1.set_reference_document(text_right)
 
             elif action == 'kaleidoscope':
                 self.write_in_pipe(text_left, text_right)
