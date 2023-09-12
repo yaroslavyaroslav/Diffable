@@ -2,7 +2,7 @@ import sublime, sublime_plugin
 import os
 import subprocess
 
-class DiffCommand(sublime_plugin.TextCommand):
+class Diffable(sublime_plugin.TextCommand):
     def get_entire_content(self, view):
         selection = sublime.Region(0, view.size())
         content = view.substr(selection)
@@ -16,16 +16,16 @@ class DiffCommand(sublime_plugin.TextCommand):
         view_1 = window.selected_sheets()[0].view() if len(window.selected_sheets()) >= 2 else window.active_view_in_group(0)
         view_2 = window.selected_sheets()[1].view() if len(window.selected_sheets()) >= 2 else window.active_view_in_group(1)
 
+        if action == 'clear':
+            if view_1: view_1.reset_reference_document()
+            if view_2: view_2.reset_reference_document()
+
         if view_1 and view_2:
             text_left = self.get_entire_content(view_1)
             text_right = self.get_entire_content(view_2)
 
-            if action == 'clear':
-                if view_1: view_1.reset_reference_document()
-                if view_2: view_2.reset_reference_document()
-
-            elif action == 'inline':
-                    view_1.set_reference_document(text_right)
+            if action == 'inline':
+                    # view_1.set_reference_document(text_right)
                     view_2.set_reference_document(text_left)
 
             elif action == 'kaleidoscope':

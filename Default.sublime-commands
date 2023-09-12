@@ -1,5 +1,23 @@
 [
-	{ "caption": "Diffable: Compare Inline", "command": "diffable", "args": {"action": "inline"}  },
-	{ "caption": "Diffable: Compare Kaleidoscope", "command": "diffable", "args": {"action": "kaleidoscope"}  },
-	{ "caption": "Diffable: Cleanup", "command": "diffable", "args": {"action": "clear"} },
+	{
+		"caption": "Diffable: Compare Inline",
+		"command": "diffable",
+		"args": {
+			"action": "inline"
+		}
+	},
+	{
+		"caption": "Diffable: Compare Kaleidoscope",
+		"command": "diffable",
+		"args": {
+			"action": "kaleidoscope"
+		}
+	},
+	{
+		"caption": "Diffable: Cleanup",
+		"command": "diffable",
+		"args": {
+			"action": "clear"
+		}
+	},
 ]
