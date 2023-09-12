@@ -39,9 +39,9 @@ It's as easy as just:
 
 ## Bindings
 
-1. To compare and show the diffs, press **super + k** followed by **super + d**.
-2. To clear the marked lines, press **super + k** followed by **super + c**.
-3. To pass presented content into Kaleidoscope app press **super + k** followed by **super + o**.
+1. To compare and show the diffs, press `super + k` followed by `super + d`.
+2. To clear the marked lines, press `super + k` followed by `super + c`.
+3. To pass presented content into Kaleidoscope app press `super + k` followed by `super + o`.
 
 ## Settings
 ### The default key binding for Mac is
@@ -58,8 +58,8 @@ It's as easy as just:
 { "keys": ["ctrl+k", "ctrl+d"], "command": "diffable", "args": {"action": "clear"} }
 { "keys": ["ctrl+k", "ctrl+c"], "command": "diffable", "args": {"action": "clear"} }
 ```
-
-There's no version of Kaleidoscope app for both Windows and Linux.
+> **Warning**
+> There's no version of Kaleidoscope app for both Windows and Linux.
 
 ## Known issues
 
@@ -67,8 +67,11 @@ Inline diffs looks corrupted on git repos uncommited changes, to fix that please
 
 ## Disclaimer
 
-This plugin is a refactored and updated verion of an ammazing plugin https://github.com/zsong/diffy which is seems depricated long ago.
+> **Note**
+> This plugin is a refactored and updated verion of an ammazing plugin https://github.com/zsong/diffy which is seems depricated long ago.
 
-None of the team stand behind Kaleidoscope app have paid me any amount for being a part of this plugin behind the scene. Though they were so kind to provide me a code snippet that let me integrate with their tool in a smooth way.
+> **Note**
+> None of the team stand behind Kaleidoscope app have paid me any amount for being a part of this plugin behind the scene. Though they were so kind to provide me a code snippet that let me integrate with their tool in a smooth way.
 
-Therefore any other diffing tool are more than welcome to become integrated on the same terms as they were — by PR to that repo.
+> **Note**
+> Therefore any other diffing tool are more than welcome to become integrated on the same terms as they were — by PR to that repo.
