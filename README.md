@@ -27,7 +27,13 @@ It's as easy as just:
 
 <details><summary>Click to see screens</summary>
 
+![](static/image_one_pane.png)
 
+![](static/image_one_pane_expanded.png)
+
+![](static/image_two_panes.png)
+
+![](static/image_two_panes_expanded.png)
 
 </details>
 
