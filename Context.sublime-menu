@@ -1,31 +1,32 @@
 [
 	{
-		"caption": "-",
-		"id": "separator"
-	},
-	{
-		"caption": "Diffable (2 Columns)",
+		"caption": "Diffable",
 		"mnemonic": "D",
 		"id": "diffable",
-		"children":
-		[
+		"children": [
 			{
-				"id" : "diffableStart",
-				"caption" : "Compare",
-				"command" : "diffable",
-				"args": {"action": "inline"}
-			},
-			{
-				"id" : "diffableStart",
-				"caption" : "Compare",
-				"command" : "diffable",
-				"args": {"action": "kaleidoscope"}
-			},
-			{
-				"id" : "diffableEnd",
-				"caption": "Clear", 
+				"id": "diffableStart",
+				"caption": "Compare Inline",
 				"command": "diffable",
-				"args": {"action": "clear"}
+				"args": {
+					"action": "inline"
+				}
+			},
+			{
+				"id": "diffableStart",
+				"caption": "Compare Kaleidoscope",
+				"command": "diffable",
+				"args": {
+					"action": "kaleidoscope"
+				}
+			},
+			{
+				"id": "diffableEnd",
+				"caption": "Clear",
+				"command": "diffable",
+				"args": {
+					"action": "clear"
+				}
 			}
 		]
 	}
