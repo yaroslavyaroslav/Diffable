@@ -1,24 +1,32 @@
-import sublime, sublime_plugin
+from typing import Optional
+from sublime import View, Region, load_settings
+from sublime_plugin import WindowCommand
 import os
 import subprocess
 
-class Diffable(sublime_plugin.TextCommand):
+class Diffable(WindowCommand):
 
-    setting = {}
+    def __get_view__(self, number: int) -> Optional[View]:
+        return self.window.selected_sheets()[number].view() if len(self.window.selected_sheets()) >= 2 else self.window.active_view_in_group(number)
+
+    def is_visible(self):
+        return True if self.__get_view__(0) and self.__get_view__(1) else False
+
+    def is_enabled(self):
+        return True if self.__get_view__(0) and self.__get_view__(1) else False
 
     def get_entire_content(self, view):
-        selection = sublime.Region(0, view.size())
+        selection = Region(0, view.size())
         content = view.substr(selection)
         return content
 
-    def run(self, _, **kwargs):
-        window = self.view.window()
-        self.settings = sublime.load_settings("Diffable.sublime-settings")
+    def run(self, **kwargs):
+        self.settings = load_settings("Diffable.sublime-settings")
 
         action = kwargs.get('action', None)
 
-        view_1 = window.selected_sheets()[0].view() if len(window.selected_sheets()) >= 2 else window.active_view_in_group(0)
-        view_2 = window.selected_sheets()[1].view() if len(window.selected_sheets()) >= 2 else window.active_view_in_group(1)
+        view_1 = self.__get_view__(0)
+        view_2 = self.__get_view__(1)
 
         if action == 'clear':
             if view_1: view_1.reset_reference_document()
