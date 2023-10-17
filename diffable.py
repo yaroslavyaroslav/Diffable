@@ -1,4 +1,3 @@
-from typing import Optional
 from sublime import View, Region, load_settings
 from sublime_plugin import WindowCommand
 import os
@@ -6,7 +5,7 @@ import subprocess
 
 class Diffable(WindowCommand):
 
-    def __get_view__(self, number: int) -> Optional[View]:
+    def __get_view__(self, number: int) -> View:
         return self.window.selected_sheets()[number].view() if len(self.window.selected_sheets()) >= 2 else self.window.active_view_in_group(number)
 
     def is_enabled(self):
@@ -53,7 +52,7 @@ class Diffable(WindowCommand):
         lhs_path = "/dev/fd/" + str(lhs_read_fd)
         rhs_path = "/dev/fd/" + str(rhs_read_fd)
 
-        ksdiff_path: Optional[str] = self.settings.get("kaleidoscope_path")
+        ksdiff_path = self.settings.get("kaleidoscope_path")
 
         ksdiff = subprocess.Popen([ksdiff_path, "-l", "Sublime Text", lhs_path, rhs_path], pass_fds=[lhs_read_fd, rhs_read_fd], close_fds=True)
 
