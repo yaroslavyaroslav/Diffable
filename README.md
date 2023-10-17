@@ -1,6 +1,6 @@
 # Diffable
 
-This is a file comparison plugin for Sublime Text 4, it relies on its internal [Incremental Diff](http://www.sublimetext.com/docs/incremental_diff.html) feature.
+This is a file comparison plugin for Sublime Text 3/4, it relies on its internal [Incremental Diff](http://www.sublimetext.com/docs/incremental_diff.html) feature.
 
 Enjoy!
 
