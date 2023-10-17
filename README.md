@@ -12,7 +12,7 @@ Enjoy!
 
 ## Installation
 
-Please install Sublime [Package Control]("https://sublime.wbond.net/installation") first. Then inside *Package Control: Install Package*, type *Diffable* and then click to confirm.
+Please install Sublime [Package Control](https://sublime.wbond.net/installation) first. Then inside *Package Control: Install Package*, type *Diffable* and then click to confirm.
 
 ## Usage
 
@@ -55,7 +55,7 @@ It's as easy as just:
 ### The default key binding for Windows / Linux is
 
 ```
-{ "keys": ["ctrl+k", "ctrl+d"], "command": "diffable", "args": {"action": "clear"} }
+{ "keys": ["ctrl+k", "ctrl+d"], "command": "diffable", "args": {"action": "inline"} }
 { "keys": ["ctrl+k", "ctrl+c"], "command": "diffable", "args": {"action": "clear"} }
 ```
 > **Warning**
