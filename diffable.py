@@ -1,4 +1,4 @@
-from sublime import View, Region, load_settings
+from sublime import View, Region, load_settings, version
 from sublime_plugin import WindowCommand
 import os
 import subprocess
@@ -6,7 +6,10 @@ import subprocess
 class Diffable(WindowCommand):
 
     def __get_view__(self, number: int) -> View:
-        return self.window.selected_sheets()[number].view() if len(self.window.selected_sheets()) >= 2 else self.window.active_view_in_group(number)
+        if int(version()) >= 4000:  # ST4
+            return self.window.selected_sheets()[number].view() if len(self.window.selected_sheets()) > number else None
+        else:  # ST3
+            return self.window.active_view_in_group(number)
 
     def is_enabled(self):
         return True if self.__get_view__(0) and self.__get_view__(1) else False
