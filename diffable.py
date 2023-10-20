@@ -7,7 +7,8 @@ class Diffable(WindowCommand):
 
     def __get_view__(self, number: int) -> View:
         if int(version()) >= 4000:  # ST4
-            return self.window.selected_sheets()[number].view() if len(self.window.selected_sheets()) > number else None
+            ## TODO: Validate that there's just 2 groups or tabs somehow.
+            return self.window.selected_sheets()[number].view() if len(self.window.selected_sheets()) == 2 else self.window.active_view_in_group(number)
         else:  # ST3
             return self.window.active_view_in_group(number)
 
