@@ -42,6 +42,12 @@ class Diffable(WindowCommand):
                     view_1.set_reference_document(text_right)
                 else:
                     view_2.set_reference_document(text_left) if self.settings.get("left_to_right") else view_1.set_reference_document(text_right)
+                ## this approach requires to select each diff hunk and toggle it manualy
+                # if self.settings.get("expand_all_diffs"):
+                #     view_1.run_command('select_all')
+                #     view_1.run_command('toggle_inline_diff')
+                #     view_2.run_command('select_all')
+                #     view_2.run_command('toggle_inline_diff')
 
             elif action == 'kaleidoscope':
                 self.write_in_pipe(text_left, text_right)
