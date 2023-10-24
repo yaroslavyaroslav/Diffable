@@ -16,4 +16,11 @@
     // The second tab wouldn't be affected eitherway.
     // have no effect in `two_panes_mode` mode.
     "left_to_right": true,
+
+    // If the diff hunks should be visible automatically
+    // - If true, diff hunks will be visible (depends on `two_panes_mode` and `left_to_right`)
+    // - If false, diff hunks wont be visible on default
+    // used for inline mode
+    // calling diffable again hides the diff hunks without dropping them.
+    "auto_show_diff_hunks": true,
 }
