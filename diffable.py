@@ -20,6 +20,15 @@ class Diffable(WindowCommand):
         content = view.substr(selection)
         return content
 
+    def toggle_inline_diff(self, view):
+        sel = view.sel()
+        old_sel = list(sel)
+        sel.clear()
+        view.run_command("select_all")
+        view.run_command("toggle_inline_diff")
+        sel.clear()
+        sel.add_all(old_sel)
+
     def run(self, **kwargs):
         self.settings = load_settings("Diffable.sublime-settings")
 
@@ -40,14 +49,19 @@ class Diffable(WindowCommand):
                 if self.settings.get("two_panes_mode"):
                     view_2.set_reference_document(text_left)
                     view_1.set_reference_document(text_right)
+                    if self.settings.get("auto_show_diff_hunks"):
+                        self.toggle_inline_diff(view_2)
+                        self.toggle_inline_diff(view_1)
+
                 else:
-                    view_2.set_reference_document(text_left) if self.settings.get("left_to_right") else view_1.set_reference_document(text_right)
-                ## this approach requires to select each diff hunk and toggle it manualy
-                # if self.settings.get("expand_all_diffs"):
-                #     view_1.run_command('select_all')
-                #     view_1.run_command('toggle_inline_diff')
-                #     view_2.run_command('select_all')
-                #     view_2.run_command('toggle_inline_diff')
+                    if self.settings.get("left_to_right"):
+                        view_2.set_reference_document(text_left)
+                        if self.settings.get("auto_show_diff_hunks"):
+                            self.toggle_inline_diff(view_2)
+                    else:
+                        view_1.set_reference_document(text_right)
+                        if self.settings.get("auto_show_diff_hunks"):
+                            self.toggle_inline_diff(view_1)
 
             elif action == 'kaleidoscope':
                 self.write_in_pipe(text_left, text_right)
